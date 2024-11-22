@@ -1,6 +1,7 @@
 # EX01 Developing a Simple Webserver
 
 # Date:
+## 21/11/2024
 # AIM:
 To develop a simple webserver to serve html pages and display the configuration details of laptop.
 
@@ -46,11 +47,8 @@ urlpatterns = [
 ]  
 ## creating new folder templates in that new html file 'home'  
 
-
 content = """  
-
-
-
+~
 <!DOCTYPE html>    
 <html lang="en">     
 <head>    
@@ -139,7 +137,7 @@ content = """
 </html>
 """
 
-
+~
 
 # OUTPUT:
 ## RUNNING SERVER
