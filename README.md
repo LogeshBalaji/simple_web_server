@@ -140,7 +140,7 @@ content = """
 ~~~
 
 # OUTPUT:
-![Screenshot 2024-11-25 132256](https://github.com/user-attachments/assets/87c595d7-dd9d-49eb-b733-5a507a93946c)
+![Screenshot 2024-11-25 144306](https://github.com/user-attachments/assets/455e88aa-a196-43d3-820a-e6c05b2d1798)
 
 ## VISUAL STUDIO CODE
 ![Screenshot 2024-11-21 212050](https://github.com/user-attachments/assets/5f8f826e-fb00-492f-a527-39821ea9293d)
