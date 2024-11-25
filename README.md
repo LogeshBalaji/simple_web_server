@@ -48,7 +48,7 @@ urlpatterns = [
 ## creating new folder templates in that new html file 'home'  
 
 content = """  
-~
+~~~
 <!DOCTYPE html>    
 <html lang="en">     
 <head>    
@@ -137,11 +137,11 @@ content = """
 </html>
 """
 
-~
+~~~
 
 # OUTPUT:
-## RUNNING SERVER
-![Screenshot 2024-11-21 202704](https://github.com/user-attachments/assets/f33404a8-7261-49f7-af6d-52e8ffdbcb31)
+![Screenshot 2024-11-25 132256](https://github.com/user-attachments/assets/87c595d7-dd9d-49eb-b733-5a507a93946c)
+
 ## VISUAL STUDIO CODE
 ![Screenshot 2024-11-21 212050](https://github.com/user-attachments/assets/5f8f826e-fb00-492f-a527-39821ea9293d)
 ## LAPTOP SPECIFICATIONS
