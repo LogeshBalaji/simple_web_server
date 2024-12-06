@@ -22,50 +22,41 @@ Serving the HTML pages.
 Testing the webserver.
 
 # PROGRAM:
-## urls.py(server1)  
+## urls.py(server1)
+~~~
 from django.urls import path  
 
 from.import views  
 
 urlpatterns=[  
     path('',views.home,name='home')  
-]  
-## views.py(server1)  
-from django.shortcuts import render    
-from django.http import HttpResponse  
-#Create your views here.  
-
-def home(request):  
-    return render(request, 'home.html')  
-## urls.py(server)
-from django.contrib import admin  
-from django.urls import path,include  
-
-urlpatterns = [  
-    path('', include('server1.urls')),  
-    path('admin/', admin.site.urls),  
-]  
-## creating new folder templates in that new html file 'home'  
-
-content = """  
+]
+~~~  
+## views.py(server1)
 ~~~
-<!DOCTYPE html>    
-<html lang="en">     
-<head>    
-  <meta charset="UTF-8">      
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">     
-  <title>Laptop Specifications</title>    
-  <style>      
-    body {    
-      font-family: 'Arial', sans-serif;    
-      background-color: #f0f0f0;    
-      color: #333;    
-      display: flex;    
-      justify-content: center;  
-      align-items: center;  
-      height: 100vh;  
-      margin: 0;  
-    }  
+from django.shortcuts import render
+from http.server import BaseHTTPRequestHandler, HTTPServer
+from importlib.resources import contents
+from django.http import HttpResponse
+
+content='''
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laptop Specifications</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
     .specs-container {
       background-color: white;
@@ -135,15 +126,32 @@ content = """
 
 </body>
 </html>
-"""
-
+'''
+class Myserver(BaseHTTPRequestHandler):
+    def do_GET(self):
+        print("Get request received...")
+        self.send_response(200)
+        self.send_header("content-type","text/html")
+        self.end_headers()
+        self.wfile.write(content.encode())
+print("This is my webserver")
+server_address =('',8000)
+Httpd = HTTPServer(server_address,Myserver)
+Httpd.serve_forever()
+~~~ 
+## urls.py(server)
 ~~~
+from django.contrib import admin  
+from django.urls import path,include  
 
+urlpatterns = [  
+    path('', include('server1.urls')),  
+    path('admin/', admin.site.urls),  
+]
+~~~  
 # OUTPUT:
-![Screenshot 2024-11-25 144306](https://github.com/user-attachments/assets/455e88aa-a196-43d3-820a-e6c05b2d1798)
+![Screenshot 2024-12-06 185103](https://github.com/user-attachments/assets/3a4a9d99-4f40-4502-b5d9-e7f17f5eb3ea)
 
-## VISUAL STUDIO CODE
-![Screenshot 2024-11-21 212050](https://github.com/user-attachments/assets/5f8f826e-fb00-492f-a527-39821ea9293d)
 ## LAPTOP SPECIFICATIONS
 ![Screenshot 2024-11-21 211719](https://github.com/user-attachments/assets/b26c6166-b68a-40f3-8be9-0a2dec61c69b)
 
